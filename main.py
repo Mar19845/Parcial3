@@ -2,12 +2,17 @@ from utils import parse_inputs,create_graph
 from KnapsackDAC import knapSack_DAC
 from KnapsackDP import knapSack_DP
 import time
+from os import walk
+#files_paths = ['very_small.csv','small.csv','large.csv','very_large.csv','huge.csv']
 
-files_paths = ['very_small.csv','small.csv','large.csv','very_large.csv','huge.csv']
-#files_paths = ['very_small.csv','small.csv','large.csv','very_large.csv']
+files_paths = []
+path = './data/'
+filenames = next(walk(path), (None, None, []))[2]
 
+for file in filenames:
+    files_paths.append(path+file)
 
-
+    
 #list for time of test
 DAC_time = []
 DP_time = []
@@ -25,7 +30,7 @@ for file in files_paths:
     #create start time
     start_time = time.time()
     #get max value
-    knapSack_max_val = knapSack_DAC(capacity, weight_list, cost_list, n)
+    #knapSack_max_val = knapSack_DAC(capacity, weight_list, cost_list, n)
     #calcular end time
     end_time = (time.time() - start_time)
 
