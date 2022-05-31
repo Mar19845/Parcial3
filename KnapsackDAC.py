@@ -8,6 +8,8 @@ Codigo obtenido de: https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/
 # Returns the maximum value that
 # can be put in a knapsack of
 # capacity capacity
+import sys
+sys.setrecursionlimit(200)
 
 def knapSack_DAC(capacity, weight_list, cost_list, n):
     # Base Case
@@ -23,11 +25,6 @@ def knapSack_DAC(capacity, weight_list, cost_list, n):
     # (1) nth item included
     # (2) not included
     else:
-        return max(
-            cost_list[n-1] + knapSack_DAC(
-                capacity-weight_list[n-1], weight_list, cost_list, n-1),
-            knapSack_DAC(capacity, weight_list, cost_list, n-1))
+        return max(cost_list[n-1] + knapSack_DAC(capacity-weight_list[n-1], weight_list, cost_list, n-1),knapSack_DAC(capacity, weight_list, cost_list, n-1))
 # end of function knapSack
-
 #print("the maximum value that can be put knapsack of capacity %s is: %s" %(capacity,  knapSack_max_val))
-

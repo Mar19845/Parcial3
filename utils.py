@@ -4,7 +4,7 @@ import numpy as np
 
 
 def parse_inputs(data_file):
-    df = pd.read_csv(data_file, names=['cost', 'weight'])
+    df = pd.read_csv(data_file, names=['cost','weight'])
     
 
 
@@ -12,7 +12,7 @@ def parse_inputs(data_file):
     #df['weight'] = df['weight'].apply(pd.to_numeric,downcast='float',errors=True)
 
 
-    capacity = int(0.8 * sum(df['weight']))
+    capacity = int(0.10 * sum(df['weight']))
     #print("\nSetting weight capacity to 80% of total: {}".format(str(capacity)))
 
 
